@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Dash from 'react-native-dash';
 import Axios from 'axios'
+import Spinner from 'react-native-spinkit'
 
 export default class About extends Component {
   constructor()
@@ -37,7 +38,6 @@ export default class About extends Component {
       })
     })
     .catch((err) => {
-      // console.log(err)
       Alert.alert("Unable To Connect")
     })
   }
@@ -45,13 +45,16 @@ export default class About extends Component {
   render() {
     return (
         <View style={styles.container}>
+          <Spinner isVisible={true} size={100} type="Bounce" color="red" />
           <View style={styles.header}>
           <Icon name="ios-pin" size={30} style={styles.logo}/>
             <Text style={styles.headerText}>Cirebon, Indonesia</Text>
             <Text style={styles.headerDesc}>{ this.state.curTime }</Text>
           </View>
           <View style={styles.content}>
-            <ScrollView>
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+            >
               <View style={styles.list}>
                   <View style={styles.listInfo}>
                     <Text style={styles.listText}>Subuh</Text>
