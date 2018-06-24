@@ -20,7 +20,7 @@ export default class Main extends Component {
   }
 
   changePage(){
-    this.props.navigation.navigate('About')
+    Alert.alert("hello world")
   }
   render() {
     return (
